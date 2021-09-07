@@ -1,8 +1,10 @@
-import dash, re, base64, io
 import pandas as pd
-from dash import dcc, html, dash_table
+import dash, re, base64, io
 import dash_bootstrap_components as dbc
+
+from dash import dcc, html, dash_table
 from dash.dependencies import Input, Output, State
+from querykeyword.manager import Manager
 
 import time
 
@@ -160,7 +162,10 @@ def render_content(n_clicks, k1, k2):
                 color='danger'
             )
         ])
-    
+
+    # Launch function to parse keywords
+    print(Manager.say_hello())
+
     # Launch function call to get word linking
     return html.Div([
         html.H3('Result'),
